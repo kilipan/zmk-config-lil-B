@@ -162,12 +162,10 @@ combo_##NAME { \
 	COMBO(_rtmr, RTMR, 5 6) \
 	SLOWCOMBO(_rtrp, RTRP, 6 7)
 #define COMBOS_BOT_ROW(LBRM, LBMI, RBIM, RBMR) \
-	SLOWCOMBO(_ltpr, LTPR, 8 9) \
 	COMBO(_lbrm, LBRM, 9 10) \
 	COMBO(_lbmi, LBMI, 10 11) \
 	COMBO(_rbim, RBIM, 12 13) \
-	COMBO(_rbmr, RBMR, 13 14) \
-	SLOWCOMBO(_rtrp, RTRP, 14 15)
+	COMBO(_rbmr, RBMR, 13 14)
 
 
 //  ________________________________________________
@@ -181,18 +179,19 @@ combo_##NAME { \
         compatible = "zmk,combos";
 /* alphas */
                      //  0+1    1+2    2+3    4+5      5+6      6+7
-        COMBOS_TOP_ROW(&kp J, &kp M, &kp B, &kp BSPC, &dotcol, &kp SLASH)
-        COMBOS_BOT_ROW(&kp Q, &kp V, &kp F, &kp ENTER, &comsem, &kp SEMI)
-                     //  8+9    9+10  10+11  12+13    13+14    14+15
+        COMBOS_TOP_ROW(&kp W, &kp M, &kp B, &kp V, &comsem, &dotcol)
+               COMBOS_BOT_ROW(&kp F, &kp P, &kp X, &kp Z)
+                            // 9+10  10+11  12+13  13+14
 
 /* usually on base layer */
-        COMBO(x, &kp X, 1 9)
-        COMBO(g, &kp G, 2 10)
-        COMBO(k, &kp K, 3 11)
-        COMBO(y, &kp Y, 4 12)
-        COMBO(p, &kp P, 1 11)
+        COMBO(q, &kp Q, 9 11)
+        COMBO(k, &kp K, 2 11)
+        COMBO(j, &kp J, 5 12)
         COMBO(shiftablesch, &macro_shiftable_sch, 1 3)
-        ALL_COMBO(esc, &kp ESC, 9 11)
+        ALL_COMBO(enter, &kp ENTER, 12 14)
+        ALL_COMBO(esc, &kp ESC, 0 3)
+        ALL_COMBO(semi, &kp SEMICOLON, 13 19)
+        ALL_COMBO(colon, &kp COLON, 14 18)
         ALL_COMBO(minus, &kp MINUS, 1 10)
         ALL_COMBO(slash, &kp SLASH, 6 13)
 /* numbers */
@@ -207,9 +206,9 @@ combo_##NAME { \
         LAYER_COMBO(Lplus, &kp PLUS, 2 11, 1)
         LAYER_COMBO(Rplus, &kp PLUS, 5 12, 1)
 /* umlauts */
-        COMBO(ae, &macro_de_ae, 15 18)
-        COMBO(oe, &macro_de_oe, 5 18)
-        COMBO(ue, &macro_de_ue, 6 18)
+        COMBO(ae, &macro_de_ae, 5 18)
+        COMBO(oe, &macro_de_oe, 7 18)
+        COMBO(ue, &macro_de_ue, 13 18)
         COMBO(sz, &macro_de_sz, 1 17)
 /* parentheticals */
         COMBO(lbrc, &kp LBRC, 1 9)
@@ -244,9 +243,9 @@ combo_##NAME { \
 
         aptmak {
             bindings = <
-                &kp W          &kp L          &kp D          &kp Z              &kp W          &kp O          &kp U          &dotcol
-                &hl LCTRL R    &hl LALT N     &hl LGUI T     &hl LSHFT H        &hr RSHFT C    &hr RGUI E     &hr LALT I     &hr RCTRL A
-                                              &my_lt NUM SQT &my_lt NAV S   &my_lt SYM SPACE   &my_lt FUN TAB
+                &hl LCTRL R    &hl LALT S     &hl LGUI T     &hl LSHFT H        &hr RSHFT N    &hr RGUI A     &hr LALT I     &hr RCTRL O
+                &kp W          &kp C          &kp G          &kp D              &kp L          &kp U          &kp Y          &dotcol
+                                              &my_lt NUM SQT &my_lt NAV SPACE   &my_lt SYM E   &my_lt FUN TAB
             >;
         };
         numbers {
