@@ -161,13 +161,13 @@ combo_##NAME { \
 	COMBO(_rtim, RTIM, 4 5) \
 	COMBO(_rtmr, RTMR, 5 6) \
 	SLOWCOMBO(_rtrp, RTRP, 6 7)
-#define COMBOS_BOT_ROW(LBRM, LBMI, RBIM, RBMR) \
-	SLOWCOMBO(_ltpr, LTPR, 8 9) \
+#define COMBOS_BOT_ROW(LBPR, LBRM, LBMI, RBIM, RBMR, RBRP) \
+	SLOWCOMBO(_ltpr, LBPR, 8 9) \
 	COMBO(_lbrm, LBRM, 9 10) \
 	COMBO(_lbmi, LBMI, 10 11) \
 	COMBO(_rbim, RBIM, 12 13) \
 	COMBO(_rbmr, RBMR, 13 14) \
-	SLOWCOMBO(_rtrp, RTRP, 14 15)
+	SLOWCOMBO(_rtrp, RBRP, 14 15)
 
 
 //  ________________________________________________
