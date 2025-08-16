@@ -254,7 +254,7 @@ combo_##NAME { \
         };
         navigation {
             bindings = <
-                &sk LCTRL      &sk LALT       &sk LGUI       &sk LSHFT          &kp LEFT       &kp UP         &kp RIGHT      &kp C_VOL_MUTE
+                &sk LCTRL      &sk LALT       &sk LGUI       &sk LSHFT          &kp LEFT       &kp UP         &kp RIGHT      &kp C_MUTE
                 &none          &kp C_AC_COPY  &kp C_AC_CUT   &kp C_AC_PASTE     &kp HOME       &kp DOWN       &kp END        &none
                                               &trans         &trans             &kp C_VOL_DN   &kp C_VOL_UP
             >;
