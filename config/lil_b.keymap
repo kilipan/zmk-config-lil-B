@@ -187,6 +187,7 @@ combo_##NAME { \
 
 /* usually on base layer */
         COMBO(q, &kp Q, 2 11)
+        ALL_COMBO(enter, &kp ENTER, 4 7)
         ALL_COMBO(esc, &kp ESC, 0 3)
         ALL_COMBO(minus, &kp MINUS, 1 10)
         ALL_COMBO(slash, &kp SLASH, 6 13)
@@ -220,7 +221,7 @@ combo_##NAME { \
         COMBO(capslock, &kp CAPSLOCK, 1 6)
 /* deletion */
         SLOWCOMBO(del, &kp DEL, 5 7)
-        COMBO(bspc, &kp BSPC, 2 11)
+        COMBO(bspc, &kp BSPC, 5 12)
         COMBO(delword, &kp LC(BSPC), 4 14)
     };
 };
@@ -253,8 +254,8 @@ combo_##NAME { \
         };
         navigation {
             bindings = <
-                &sk LCTRL      &sk LALT       &sk LGUI       &sk LSHFT          &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT
-                &none          &kp C_AC_COPY  &kp C_AC_CUT   &kp C_AC_PASTE     &kp HOME       &kp C_MUTE     &kp END        &none
+                &sk LCTRL      &sk LALT       &sk LGUI       &sk LSHFT          &kp LEFT       &kp UP         &kp RIGHT      &kp C_VOL_MUTE
+                &none          &kp C_AC_COPY  &kp C_AC_CUT   &kp C_AC_PASTE     &kp HOME       &kp DOWN       &kp END        &none
                                               &trans         &trans             &kp C_VOL_DN   &kp C_VOL_UP
             >;
         };
