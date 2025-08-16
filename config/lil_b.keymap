@@ -154,20 +154,20 @@ combo_##NAME { \
     layers = <LAYERS>; \
 };
 
-#define COMBOS_TOP_ROW(LTPR, LTRM, LTMI, RTIM, RTMR, RTRP) \
-	SLOWCOMBO(_ltpr, LTPR, 0 1) \
+#define COMBOS_TOP_ROW(LTRM, LTRI, LTMI, RTIM, RTIR, RTMR) \
 	COMBO(_ltrm, LTRM, 1 2) \
+	COMBO(_ltri, LTRI, 1 3) \
 	COMBO(_ltmi, LTMI, 2 3) \
 	COMBO(_rtim, RTIM, 4 5) \
-	COMBO(_rtmr, RTMR, 5 6) \
-	SLOWCOMBO(_rtrp, RTRP, 6 7)
-#define COMBOS_BOT_ROW(LBPR, LBRM, LBMI, RBIM, RBMR, RBRP) \
-	SLOWCOMBO(_lbpr, LBPR, 8 9) \
+	COMBO(_rtir, RTIR, 4 6) \
+	COMBO(_rtmr, RTMR, 5 6)
+#define COMBOS_BOT_ROW(LBRM, LBRI, LBMI, RBIM, RBIR, RBMR) \
 	COMBO(_lbrm, LBRM, 9 10) \
+	COMBO(_lbri, LBRI, 9 11) \
 	COMBO(_lbmi, LBMI, 10 11) \
 	COMBO(_rbim, RBIM, 12 13) \
-	COMBO(_rbmr, RBMR, 13 14) \
-	SLOWCOMBO(_rbrp, RBRP, 14 15)
+	COMBO(_rbir, RBIR, 12 14) \
+	COMBO(_rbmr, RBMR, 13 14)
 
 
 //  ________________________________________________
@@ -180,19 +180,14 @@ combo_##NAME { \
     combos {
         compatible = "zmk,combos";
 /* alphas */
-                     //  0+1    1+2    2+3    4+5      5+6      6+7
-        COMBOS_TOP_ROW(&kp J, &kp M, &kp B, &kp BSPC, &dotcol, &kp SLASH)
-        COMBOS_BOT_ROW(&kp Q, &kp V, &kp F, &kp ENTER, &comsem, &kp MINUS)
-                     //  8+9    9+10  10+11  12+13    13+14    14+15
+                     // 1+2    1+3    2+3    4+5      4+6    5+6
+        COMBOS_TOP_ROW(&kp M, &kp K, &kp P, &comsem, &kp V, &dotcol)
+        COMBOS_BOT_ROW(&kp W, &kp Z, &kp F, &kp Y,   &kp J, &kp X)
+                     // 9+10   9+11  10+11  12+13    12+14  13+14
 
 /* usually on base layer */
-        COMBO(x, &kp X, 1 9)
-        COMBO(g, &kp G, 2 10)
-        COMBO(k, &kp K, 3 11)
-        COMBO(y, &kp Y, 4 12)
-        COMBO(p, &kp P, 1 11)
-        COMBO(shiftablesch, &macro_shiftable_sch, 1 3)
-        ALL_COMBO(esc, &kp ESC, 9 11)
+        COMBO(q, &kp Q, 2 11)
+        ALL_COMBO(esc, &kp ESC, 0 3)
         ALL_COMBO(minus, &kp MINUS, 1 10)
         ALL_COMBO(slash, &kp SLASH, 6 13)
 /* numbers */
@@ -212,20 +207,21 @@ combo_##NAME { \
         COMBO(ue, &macro_de_ue, 6 18)
         COMBO(sz, &macro_de_sz, 1 17)
 /* parentheticals */
-        LAYER_COMBO(lbrc, &kp LBRC, 1 9, 3)
-        LAYER_COMBO(lbkt, &kp LBKT, 2 10, 3)
-        LAYER_COMBO(lpar, &kp LPAR, 3 11, 3)
-        LAYER_COMBO(lt, &kp LT, 1 11, 3)
-        LAYER_COMBO(rt, &kp GT, 6 12, 3)
-        LAYER_COMBO(rpar, &kp RPAR, 4 12, 3)
-        LAYER_COMBO(rbkt, &kp RBKT, 5 13, 3)
-        LAYER_COMBO(rbrc, &kp RBRC, 6 14, 3)
+        COMBO(lbrc, &kp LBRC, 1 9, 3)
+        COMBO(lbkt, &kp LBKT, 2 10, 3)
+        COMBO(lpar, &kp LPAR, 3 11, 3)
+        COMBO(lt, &kp LT, 1 11, 3)
+        COMBO(rt, &kp GT, 6 12, 3)
+        COMBO(rpar, &kp RPAR, 4 12, 3)
+        COMBO(rbkt, &kp RBKT, 5 13, 3)
+        COMBO(rbrc, &kp RBRC, 6 14, 3)
 /* caps */
         COMBO(caps, &caps_word, 3 4)
         COMBO(capslock, &kp CAPSLOCK, 1 6)
 /* deletion */
         SLOWCOMBO(del, &kp DEL, 5 7)
-        COMBO(delword, &kp LC(BSPC), 4 6)
+        COMBO(bspc, &kp BSPC, 2 11)
+        COMBO(delword, &kp LC(BSPC), 4 14)
     };
 };
 
@@ -243,9 +239,9 @@ combo_##NAME { \
 
         aptmak {
             bindings = <
-                &kp J          &kp L          &kp D          &kp Z              &kp W          &kp O          &kp U          &dotcol
                 &hl LCTRL R    &hl LALT N     &hl LGUI T     &hl LSHFT H        &hr RSHFT C    &hr RGUI E     &hr LALT I     &hr RCTRL A
-                                              &my_lt NUM SQT &my_lt NAV S   &my_lt SYM SPACE   &my_lt FUN TAB
+                &kp J          &kp L          &kp D          &kp B              &kp G          &kp O          &kp U          &dotcol
+                                              &my_lt NUM TAB &my_lt NAV S   &my_lt SYM SPACE   &my_lt FUN SQT
             >;
         };
         numbers {
